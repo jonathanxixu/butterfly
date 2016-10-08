@@ -1,0 +1,22 @@
+function(dynamic_compile target)
+	add_library(${target} SHARED ${ARGN})
+endfunction()
+
+function(static_compile target)
+	add_library(${target} STATIC ${ARGN})
+endfunction()
+
+function(execute_compile target)
+	add_executable(${target} ${ARGN})
+endfunction()
+
+function(qt_execute_compile target)
+  if(WIN32)
+	find_package(Qt5Core)
+    add_executable(${target} WIN32 ${ARGN})
+	target_link_libraries(${target} Qt5::WinMain)
+  else()
+	add_executable(${target} ${ARGN})
+  endif()
+  source_group("generated" REGULAR_EXPRESSION ".*_automoc\\.cpp")
+endfunction()
