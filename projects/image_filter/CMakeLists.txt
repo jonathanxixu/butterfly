@@ -12,6 +12,9 @@ source_group("Source Files" FILES ${SRCS_FILES})
 
 set (SOURCE_FILE ${CMAKE_BINARY_DIR}/bin/${CMAKE_BUILD_TYPE}/image_filter.lib)
 set (DESTINATION_DIR ${CMAKE_SOURCE_DIR}/bin)
+if(NOT EXISTS ${DESTINATION_DIR})
+	file(MAKE_DIRECTORY ${DESTINATION_DIR})
+endif()
 message(${SOURCE_FILE})
 message(${DESTINATION_DIR})
 add_custom_command(

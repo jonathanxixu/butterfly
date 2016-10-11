@@ -16,6 +16,9 @@ if(${OpenCV_FOUND})
 	
 	set (SOURCE_FILE ${CMAKE_BINARY_DIR}/bin/${CMAKE_BUILD_TYPE}/image_filter_test.exe)
 	set (DESTINATION_DIR ${CMAKE_SOURCE_DIR}/bin)
+	if(NOT EXISTS ${DESTINATION_DIR})
+		file(MAKE_DIRECTORY ${DESTINATION_DIR})
+	endif()
 	add_custom_command(
 		TARGET image_filter_test
 		POST_BUILD
