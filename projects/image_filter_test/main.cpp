@@ -11,6 +11,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include "image_filter/median_filter.h"
 #include "image_filter/mean_filter.h"
+#pragma comment(lib,"image_filter.lib")
 
 #define TEST_TYPE float
 #define LOG_FILE_CVS
@@ -310,9 +311,7 @@ int main(int argc, char *argv[]) {
   RECORD_INIT;
   // Input parameter check
   if (argc != 5) {
-    RECORD(ERROR, "Usage: ImageProcessing.exe {image} \
-          {radius array, e.g.[1, 3, 5, 9, 15, 21]} {run_times} \
-          {save image:1, not:0(default)}");
+    RECORD(ERROR, "This application needs 5 input params.");
     return 0;
   }
   assert(0 < atoi(argv[3]));

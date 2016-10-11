@@ -10,6 +10,7 @@ READ ME BEFORE USING.
 	|----data
 	|----projects----image_filter
 	|----test
+	|----bin
 	
 3. Third part dependence
 	a) easylogging

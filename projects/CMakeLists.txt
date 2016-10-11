@@ -1,1 +1,2 @@
 add_subdirectory(image_filter)
+add_subdirectory(image_filter_test)

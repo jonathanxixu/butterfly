@@ -1,8 +1,15 @@
 ﻿#ifndef IMAGE_IMAGE_FILTER_MEDIAN_FILTER_H_
 #define IMAGE_IMAGE_FILTER_MEDIAN_FILTER_H_
+
+#ifdef IMAGE_IMAGE_FILTER_MEDIAN_FILTER_H_
+#define DLL_IMAGE_FILTER_MEDIAN_FILTER_API __declspec(dllexport)
+#else
+#define DLL_IMAGE_FILTER_MEDIAN_FILTER_API __declspec(dllimport)
+#endif
+
 #include <assert.h>
 #include <chrono>
-#include <iostream>
+
 // Define macro min
 #ifndef MIN
 #define MIN(a, b) ((a) > (b) ? (b) : (a))
@@ -19,8 +26,9 @@ private:\
   classname(const classname&);\
   classname& operator=(const classname&)
 
+
 template<typename Dtype>
-class MedianFilter
+class DLL_IMAGE_FILTER_MEDIAN_FILTER_API MedianFilter
 {
 public:
   MedianFilter() : gate_(0.5) {}
@@ -42,7 +50,7 @@ private:
   DISABLE_COPY_AND_ASSIGN(MedianFilter);
 };
 
-class UcharMedianFilter
+class DLL_IMAGE_FILTER_MEDIAN_FILTER_API UcharMedianFilter
 {
 public:
   UcharMedianFilter() : gate_(0.5) {}
